@@ -1,24 +1,24 @@
 const { io } = require('../server');
 
 io.on('connection', (client) => {
-  console.log('User Connected');
+  console.log('Usuario Conectado');
 
-  client.emit('sendMessage', {
-    user: 'Administrator',
-    message: 'Welcome to this app',
+  client.emit('enviarMensaje', {
+    Usuario: 'Administrador',
+    mesanje: 'Bienvenido a la app',
   });
 
   client.on('disconnect', () => {
-    console.log('User disconnected');
+    console.log('Usuario Desconectado');
   });
 
   // Listen to the client
-  client.on('sendMessage', (data, callback) => {
+  client.on('enviarMensaje', (data, callback) => {
     console.log(data);
 
-    client.broadcast.emit('sendMessage', data);
+    client.broadcast.emit('enviarMensaje', data);
 
-    // if (message.user) {
+    // if (mesanje.Usuario) {
     //     callback({
     //         resp: 'TODO SALIO BIEN!'
     //     });

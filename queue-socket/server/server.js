@@ -21,5 +21,5 @@ require('./sockets/socket');
 server.listen(port, (err) => {
   if (err) throw new Error(err);
 
-  console.log(`Running server on port ${port}`);
+  console.log(`Corriendo en el puerto ${port}`);
 });
