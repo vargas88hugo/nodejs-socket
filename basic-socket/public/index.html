@@ -10,19 +10,6 @@
   <body>
     <h1>Queue Program</h1>
     <script src="socket.io/socket.io.js"></script>
-    <script>
-      const socket = io();
-      socket.on('connect', () => console.log('Connected to the server'));
-      socket.on('disconnect', () => console.log('Disconnected to the server'));
-      socket.emit(
-        'sendMessage',
-        {
-          user: 'Hugo Vargas',
-          message: 'Hello World',
-        },
-        (resp) => console.log(`Server response: ${resp.message}`)
-      );
-      socket.on('sendMessage', (obj) => console.log(obj));
-    </script>
+    <script src="js/socket-custom.js"></script>
   </body>
 </html>
