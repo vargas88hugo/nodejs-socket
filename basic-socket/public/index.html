@@ -9,5 +9,10 @@
 
   <body>
     <h1>Queue Program</h1>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      socket.on('connect', () => console.log('Connected with the server'));
+    </script>
   </body>
 </html>
