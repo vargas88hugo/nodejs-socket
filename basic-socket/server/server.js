@@ -16,6 +16,11 @@ const io = socketIO(server);
 io.on('connection', (client) => {
   console.log('User connected');
 
+  client.emit('sendMessage', {
+    user: 'Admin',
+    message: 'Welcome to my app!',
+  });
+
   client.on('disconnect', () => {
     console.log('User disconnected');
   });
