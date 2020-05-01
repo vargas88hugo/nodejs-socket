@@ -13,7 +13,13 @@ const port = process.env.PORT || 3000;
 app.use(express.static(publicPath));
 
 const io = socketIO(server);
-io.on('connection', (client) => console.log('User connected'));
+io.on('connection', (client) => {
+  console.log('User connected');
+
+  client.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+});
 
 server.listen(port, (err) => {
   if (err) throw new Error(err);
