@@ -25,7 +25,19 @@ io.on('connection', (client) => {
     console.log('User disconnected');
   });
 
-  client.on('sendMessage', (obj) => console.log(obj));
+  client.on('sendMessage', (obj, callback) => {
+    console.log(obj);
+
+    if (obj.user) {
+      callback({
+        message: 'Everything is good',
+      });
+    } else {
+      callback({
+        message: 'Everything is wrong',
+      });
+    }
+  });
 });
 
 server.listen(port, (err) => {
