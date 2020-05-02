@@ -1,32 +1,12 @@
 const { io } = require('../server');
+const { TicketControl } = require('../classes/ticket-control');
 
 io.on('connection', (client) => {
-  console.log('Usuario Conectado');
+  const ticketControl = new TicketControl();
+  client.on('siguienteTicket', (data, callback) => {
+    let siguiente = ticketControl.siguiente();
 
-  client.emit('enviarMensaje', {
-    Usuario: 'Administrador',
-    mesanje: 'Bienvenido a la app',
-  });
-
-  client.on('disconnect', () => {
-    console.log('Usuario Desconectado');
-  });
-
-  // Listen to the client
-  client.on('enviarMensaje', (data, callback) => {
-    console.log(data);
-
-    client.broadcast.emit('enviarMensaje', data);
-
-    // if (mesanje.Usuario) {
-    //     callback({
-    //         resp: 'TODO SALIO BIEN!'
-    //     });
-
-    // } else {
-    //     callback({
-    //         resp: 'TODO SALIO MAL!!!!!!!!'
-    //     });
-    // }
+    console.log(siguiente);
+    callback(siguiente);
   });
 });
