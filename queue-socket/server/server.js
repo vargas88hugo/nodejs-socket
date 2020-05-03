@@ -3,10 +3,6 @@ const socketIO = require('socket.io');
 const http = require('http');
 const path = require('path');
 
-const { TicketControl } = require('./classes/ticket-control');
-
-const ticketControl = new TicketControl();
-
 const app = express();
 let server = http.createServer(app);
 

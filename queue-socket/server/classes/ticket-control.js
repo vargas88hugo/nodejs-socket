@@ -54,7 +54,7 @@ class TicketControl {
 
     this.ultimos4.unshift(ticketPorAtender);
 
-    if (this.ultimos4.lengt > 4) {
+    if (this.ultimos4.length > 4) {
       this.ultimos4.pop();
     }
 
@@ -63,7 +63,7 @@ class TicketControl {
 
     this.grabarArchivo();
 
-    return this.ticketPorAtender;
+    return ticketPorAtender;
   }
 
   reiniciarConteo() {
